@@ -1,0 +1,13 @@
+SetEnvIfNoCase Referer "^http://www.mikebrock.me/" locally_linked=1
+SetEnvIfNoCase Referer "^http://www.mikebrock.me$" locally_linked=1
+SetEnvIfNoCase Referer "^http://mikebrock.me/" locally_linked=1
+SetEnvIfNoCase Referer "^http://mikebrock.me$" locally_linked=1
+SetEnvIfNoCase Referer "^https://www.mikebrock.me/" locally_linked=1
+SetEnvIfNoCase Referer "^https://www.mikebrock.me$" locally_linked=1
+SetEnvIfNoCase Referer "^https://mikebrock.me/" locally_linked=1
+SetEnvIfNoCase Referer "^https://mikebrock.me$" locally_linked=1
+SetEnvIfNoCase Referer "^$" locally_linked=1
+<FilesMatch "\.(gif|png|jpe?g)$">
+  Order Allow,Deny
+  Allow from env=locally_linked
+</FilesMatch>

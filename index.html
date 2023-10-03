@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0" charset="utf-8">
+<link id="css" rel="stylesheet" href="css/hrz.css" type="text/css" />
+<script src="scripts/mvb.js"></script>
+</head>
+<body onload="init()">
+
+	<!-- hidden element for displaying images and pdfs in front of the website -->
+	<div id="picDiv">
+	</div>
+	
+	
+	<div id="title">
+		<div id="myName">Michael V. Brock</div>
+		<div id="port">- portfolio -</div>
+	</div>
+	
+	<div id="nav">
+		<span class="pointer navBtnFocus" id="about">about</span>
+		<span class="pointer navBtn" id="code">code</span>
+		<span class="pointer navBtn" id="mrp">mrp</span>
+		<span class="pointer navBtn" id="games">games</span>
+		</br><div id="navgradient"></div>
+	</div>
+			
+	<div id="center">
+		<div class="content" id="about-content">
+			<div id="about-text">
+				</br></br>
+				&nbsp;&nbsp;Hello and thank you for visiting my professional portfolio website. I am a software developer
+				with an aptitude for analyzing systems and processes, conceiving insights for improvement. 
+				</br>
+				&nbsp;&nbsp;I have decades of diverse work experience to draw from in production environments, including management, 
+				that gives me an advantage in developing intuitive solutions.
+				I believe that there is always room for improvement and the tools of computer engineering can often achieve this.
+			</div>
+			</br>
+			</br>
+			</br>
+			
+			<div id="about-contact">
+
+				<img id="about-contact-face" src="img/face.png" alt="peeled potato with glasses">
+
+				<div id="about-contact-vrt-line"></div>
+				
+				<div id="about-contact-links">
+					<div class="pointer about-contact-links" id="about-contact-links-resume">Résumé</div>
+					<a class="pointer about-contact-links" target="_blank" href="https://www.linkedin.com/in/mbrock76/">
+						<img src="img/in.png" alt=" logo">
+					</a>
+					<a class="pointer about-contact-links" target="_blank" href="https://github.com/mbrock76/">
+						<img src="img/github.png" alt="github logo">
+					</a>
+					<div class="pointer about-contact-links" id="about-contact-links-email">
+						<img src="img/email.png" alt="email icon">
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="content" id="projects-content">
+			<div class="" id="">asdf</div>
+		</div>
+		
+		<div class="content" id="mrp-content">
+		
+			<div id="mrp-welcome">
+			</br>
+			Welcome to the material resource planner project!
+			</br>
+			Originally written in java for my capstone, I have rewritten it here as an example of both my programming and industry experience.
+			</br></br>
+			</div>
+			
+			<form id="mrp-login">
+				<label for="username" class="mrp-login-elements">Login/create account:</label></br>
+				<label for="username" class="mrp-login-elements" id="mrp-login-label-sub">(Chars allowed: Aa123_ )</label></br>
+				<input type="text" class="mrp-login-elements" name="username" id="mrp-login-username" size="20" placeholder="Username" maxlength="30" required></br>
+				<input type="password" class="mrp-login-elements" name="password" id="mrp-login-password" size="20" placeholder="Password" maxlength="30" required></br>
+				<button type="button" class="mrp-login-elements" id="mrp-login-login">Enter</button>
+			</form>
+			
+			<div id="mrp-wrapper">
+				<div id="mrp-user">
+					<button type="button" class="user-logout" id="mrp-user-logout">Logout</button>
+					<div id="mrp-user-name"></div>
+					<div class="savebox">
+						<input class="flex-one" type="checkbox" name="mrp-user-remember" id="mrp-user-remember"></input>
+						<img class="flex-one" id="mrp-user-save" src="img/savicon.png" alt="remember?">
+					</div>
+				</div>
+				
+				<div class="mrp-tabs" id="mrp-rou">
+					<div class="mrp-tabs-hdr">
+						<div style="width:30px;"></div>
+						<div>Routers</div>
+						<div class="mrp-ColExp" id="mrp-rou-CE">▲</div>
+					</div>
+					<div class="mrp-tabs-content" id="mrp-rou-content" style="display:none;">
+						<div id="mrp-rou-content-buttons">
+						</div>
+						<div id="mrp-rou-content-data">
+						</div>
+					</div>
+				</div>
+				
+				<div class="mrp-tabs" id="mrp-inv">
+					<div class="mrp-tabs-hdr">
+						<div style="width:30px;"></div>
+						<div>Inventory</div>
+						<div class="mrp-ColExp" id="mrp-inv-CE">▲</div>
+					</div>
+					<div class="mrp-tabs-content" id="mrp-inv-content" style="display:none;">
+						<div id="mrp-inv-content-buttons">
+						</div>
+						<div id="mrp-inv-content-data">
+						</div>
+					</div>
+				</div>
+				
+				<div class="mrp-tabs" id="mrp-rec">
+					<div class="mrp-tabs-hdr">
+						<div style="width:30px;"></div>
+						<div>Receiving</div>
+						<div class="mrp-ColExp" id="mrp-rec-CE">▲</div>
+					</div>
+					
+					<div class="mrp-tabs-content" id="mrp-rec-content" style="display:none;">
+						<div class="mrp-content-lines">
+							<div>
+								<label for="mrp-rec-content-qty">Qty:</label>
+								<input type="text" name="mrp-rec-content-qty" id="mrp-rec-content-qty" placeholder="All?" size="2"></input>
+							</div>
+								<button type="button" id="mrp-rec-content-scrap">scrap</button>
+								<button type="button" id="mrp-rec-content-receive">receive</button>
+						</div>
+						<div id="mrp-rec-content-data">
+						</div>
+					</div>
+				</div>
+				
+				<div class="mrp-tabs" id="mrp-shi">
+					<div class="mrp-tabs-hdr">
+						<div style="width:30px;"></div>
+						<div>Shipping</div>
+						<div class="mrp-ColExp" id="mrp-shi-CE">▲</div>
+					</div>
+					<div class="mrp-tabs-content" id="mrp-shi-content" style="display:none;">
+						<div id="mrp-shi-content-buttons">
+						</div>
+						<div id="mrp-shi-content-data">
+						</div>
+					</div>
+				</div>
+				
+				<div class="mrp-tabs" id="mrp-por">
+					<div class="mrp-tabs-hdr">
+						<div style="width:30px;"></div>
+						<div>Purchase Orders</div>
+						<div class="mrp-ColExp" id="mrp-por-CE">▲</div>
+					</div>
+					
+					<div class="mrp-tabs-content" id="mrp-por-content" style="display:none;">
+						<div class="mrp-content-lines">
+							<div>
+								</br>
+								<button type="button" id="mrp-por-content-cancel">cancel</button>
+							</div>
+							<div>
+								<label for="mrp-por-content-create-items">Item:</label></br>
+								<select name="mrp-por-content-create-items" id="mrp-por-content-create-items" style="width:70px;">
+									<option value="steel">steel</option>
+									<option value="fasteners">fasteners</option>
+									<option value="springs">springs</option>
+									<option value="coating">coating</option>
+									<option value="packaging">packaging</option>
+								</select>
+							</div>
+							<div>
+								<label for="mrp-por-content-create-qty">Qty:</label></br>
+								<input type="text" name="mrp-por-content-create-qty" id="mrp-por-content-create-qty" size="2"></input>
+							</div>
+							<div>
+								</br>
+								<button type="button" id="mrp-por-content-create-submit">order</button>
+							</div>
+						</div>
+						
+						<div id="mrp-por-content-data">
+						</div>
+					</div>
+				</div>
+			
+				<div class="mrp-tabs" id="mrp-sor">
+					<div class="mrp-tabs-hdr">
+						<div style="width:30px;"></div>
+						<div>Sales Orders</div>
+						<div class="mrp-ColExp" id="mrp-sor-CE">▲</div>
+					</div>
+					<div class="mrp-tabs-content" id="mrp-sor-content" style="display:none;">
+						<div id="mrp-sor-content-buttons">
+						</div>
+						<div id="mrp-sor-content-data">
+						</div>
+					</div>
+				</div>
+
+				<div class="mrp-tabs" id="mrp-doc">
+					<div class="mrp-tabs-hdr">
+						<div style="width:30px;"></div>
+						<div>Documents</div>
+						<div class="mrp-ColExp" id="mrp-doc-CE">▲</div>
+					</div>
+					
+					<div class="mrp-tabs-content" id="mrp-doc-content" style="display:none;">
+						</br>Drawings:
+						<div class="mrp-doc-content-picblock">
+							<img class="mrp-doc-content-picthumb" id="mrp-doc-content-widgetA" src="dox/widgetA.png" alt="widgetA">
+							<img class="mrp-doc-content-picthumb" id="mrp-doc-content-widgetB" src="dox/widgetB.png" alt="widgetB">
+							<img class="mrp-doc-content-picthumb" id="mrp-doc-content-widgetC" src="dox/widgetC.png" alt="widgetC">
+						</div>
+						<div class="mrp-por-content-line"></div>
+						</br>Quality Control:
+						<div class="mrp-doc-content-picblock">
+							<img class="mrp-doc-content-picthumb" id="mrp-doc-content-qc-sop-A" src="dox/qc_sop_A.png" alt="qc sop A">
+							<img class="mrp-doc-content-picthumb" id="mrp-doc-content-qc-sop-B" src="dox/qc_sop_B.png" alt="qc sop B">
+							<img class="mrp-doc-content-picthumb" id="mrp-doc-content-qc-sop-C" src="dox/qc_sop_C.png" alt="qc sop C">
+						</div>
+						<div class="mrp-por-content-line"></div>
+						</br>Assembly:
+						<div class="mrp-doc-content-picblock">
+							<img class="mrp-doc-content-picthumb" id="mrp-doc-content-assembly-A" src="dox/assembly-A.png" alt="assembly A">
+							<img class="mrp-doc-content-picthumb" id="mrp-doc-content-assembly-B" src="dox/assembly-B.png" alt="assembly B">
+							<img class="mrp-doc-content-picthumb" id="mrp-doc-content-assembly-C" src="dox/assembly-C.png" alt="assembly C">
+						</div>
+						<div class="mrp-por-content-line"></div>
+						</br>Misc:
+						<div class="mrp-doc-content-picblock">
+							<img class="mrp-doc-content-picthumb" id="mrp-doc-content-floor-plan" src="dox/floor_plan.png" alt="floor plan">
+						</div>
+					</div>
+				</div>
+				</br>
+				</br>
+			</div>
+		</div>
+		
+		<div class="content" id="games-content">
+		
+			<div id="games-welcome">Shall we play a game?</div>
+			<form id="games-login">
+				<label for="username" class="mrp-login-elements">Login/create account:</label></br>
+				<label for="username" class="mrp-login-elements" id="games-login-label-sub">(Chars allowed: Aa123_ )</label></br>
+				<input type="text" class="mrp-login-elements" name="username" id="games-login-username" size="20" placeholder="Username" maxlength="30" required></br>
+				<input type="password" class="mrp-login-elements" name="password" id="games-login-password" size="20" placeholder="Password" maxlength="30" required></br>
+				<button type="button" class="mrp-login-elements" id="games-login-login">Enter</button>
+			</form>
+			
+			<div id="games-wrapper">
+			
+				<div id="games-user">
+					<button type="button" class="user-logout" id="games-user-logout">Logout</button>
+					<div id="games-user-name"></div>
+					<div class="savebox">
+						<input class="flex-one" type="checkbox" name="games-user-remember" id="games-user-remember"></input>
+						<img class="flex-one" id="games-user-save" src="img/savicon.png" alt="remember?">
+					</div>
+				</div>
+				
+				<div id="games-panel">
+					<div id="games-nav">
+						<div class="games-nav-arrows" id="games-nav-left" data-value="-1">◄</div>
+						<div id="games-nav-title" data-value="1">
+							<div id="games-nav-chat">chat:</div>
+							<div id="games-nav-buttons">
+								<img class="games-nav-buttons" id="games-nav-buttons-hangman" src="img/games-button-hm.png" alt="Hangman">
+								<img class="games-nav-buttons" id="games-nav-buttons-ttt" src="img/games-button-ttt.png" alt="Tic Tac Toe">
+								<img class="games-nav-buttons" id="games-nav-buttons-bird" src="img/games-button-bird.png" alt="Bird Bomber">
+								<img class="games-nav-buttons" id="games-nav-buttons-hat" src="img/games-button-hat.png" alt="High Hat">
+							</div>
+							<div id="games-nav-info">info:</div>
+						</div>
+						<div class="games-nav-arrows" id="games-nav-right" data-value="1">►</div>
+					</div>
+					</br>
+					
+					<div class="games-panels" id="games-panel-chat">
+						<div id="games-panel-chat-msgs">
+						</div>
+						</br>
+						<div id="games-panel-chat-text">
+							<input type="text" id="games-panel-chat-text-input" size="20" maxlength="256">
+							<button type="button" id="games-panel-chat-text-enter">Enter</button>
+						</div>
+					</div>
+					
+					<div class="games-panels" id="games-panel-game">
+						<div id="games-panel-game-hangman">
+							<div id="games-panel-game-hangman-buttons">
+								<select name="games-panel-game-hangman-buttons-size" id="games-panel-game-hangman-buttons-size" style="width:40px;">
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+								</select>
+								<button type="button" id="games-panel-game-hangman-buttons-new">New</button>
+								<button type="button" id="games-panel-game-hangman-buttons-quit">Quit</button>
+							</div>
+							<div id="games-panel-game-hangman-word">
+							</div>
+							<div id="games-panel-game-hangman-pic">
+								<img id="hangman-pic" src="img/hangman-0.png">
+							</div>
+							<div id="games-panel-game-hangman-play">
+								<input type="text" id="hangman-input" size="1" maxlength="1">
+								<button type="button" id="hangman-guess">Guess</button>
+								<div id="hangman-missed"></div>
+							</div>
+							<div id="hangman-msg"></div>
+						</div>
+						<div id="games-panel-game-ttt">
+							<div id="games-panel-game-ttt-buttons">
+								Turn:
+								<select name="games-panel-game-ttt-buttons-turn" id="games-panel-game-ttt-buttons-turn" style="width:50px;">
+									<option value="1">1st</option>
+									<option value="2">2nd</option>
+								</select>
+								<button type="button" id="games-panel-game-ttt-buttons-new">New</button>
+								<button type="button" id="games-panel-game-ttt-buttons-quit">Quit</button>
+							</div>
+							</br>
+							<canvas id="ttt-canvas" width="300" height="300">
+							</canvas>
+							</br>
+							<div id="ttt-msg">
+							</div>
+						</div>
+						<div id="games-panel-game-bird">
+							<img class="coming-soon" id="about-content-coming-soon" src="img/coming_soon.png" alt="coming soon">
+						</div>
+						<div id="games-panel-game-hat">
+							<img class="coming-soon" id="about-content-coming-soon" src="img/coming_soon.png" alt="coming soon">
+						</div>
+					</div>
+					
+					<div id="games-panel-info">
+					</div>
+					</br>
+				</div>
+				</br>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
