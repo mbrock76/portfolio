@@ -1,11 +1,11 @@
 body{
 	background-image: linear-gradient(to right, #cccccc, #eeeeee, white, white, white, white, white, #eeeeee, #cccccc);
 	margin: auto;
-	font-size: 2rem;
+	font-size: 1.5rem;
 	font-family: Calibri, sans-serif;
 }
 
-#picDiv{
+#picDiv, #emailDiv{
 	display: none;
 	justify-content: center;
 	position: fixed;
@@ -44,11 +44,7 @@ body{
 }
 
 #myName{
-	font-size: 40px;
-}
-
-#port{
-	font-size: 22px;
+	font-size: 3rem;
 }
 
 #nav{
@@ -76,7 +72,7 @@ body{
 	margin-left: 2px;
 	margin-right: 2px;
 	background-color: #aaaaaa;
-	font-size: 20px;
+	font-size: 1.5rem;
 
 }
 
@@ -87,8 +83,7 @@ body{
 	margin-left: 2px;
 	margin-right: 2px;
 	background-color: white;
-	font-size: 20px;
-
+	font-size: 1.5rem;
 }
 
 #temp{
@@ -127,14 +122,6 @@ body{
 	height: 20px;
 }
 
-.savestuff{
-	flex: 1;
-}
-
-.user-logout{
-	height: 20px;
-}
-
 #about-content{
 	display: inline-block;
 	padding-bottom: 100px;
@@ -160,24 +147,22 @@ body{
 }
 
 #about-contact{
-	display: flex;
-	clear: both;
+	display: grid;
+	grid-template-columns: 50% 5% 45%;
 	width: 100%;
 	margin: auto;
-	justify-content: space-evenly;
 }
 
 #about-contact-face{
-	height: auto;
-	width: 35%;
-	padding: 20px, 0px, 20px, 0px;
+	max-width: 80%;
+	margin: auto;
 }
 
 #about-contact-vrt-line{
 	height: auto;
 	width: 3px;
+	height: 15rem;
 	background-image: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,1), rgba(0,0,0,0))
-	
 }
 
 #about-contact-links{
@@ -185,19 +170,15 @@ body{
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-evenly;
-	width: 35%;
+	/* filter: drop-shadow(-2px 2px 3px #000000); */
 }
 
-#kitchen{
-	display: inline-block;
-	width: 100%;
-	margin: auto;
+.about-contact-link{
+	height: 15%;
 }
 
-#warehouse{
-	display: inline-block;
-	width: 100%;
-	margin: auto;
+.about-contact-link-img{
+	height: 100%;
 }
 
 #code-content{
@@ -601,7 +582,7 @@ body{
 }
 
 .navBtn:hover{
-	outline: 2px solid black;
+	color: white;
 }
 
 .mrp-ColExp:hover{

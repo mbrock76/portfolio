@@ -152,11 +152,14 @@ function init(){
 	document.getElementById("mrp").addEventListener("click", loadMrp);
 	document.getElementById("games").addEventListener("click", loadGames);
 	
-	//picdiv is an element for displaying documents and images on a higher z-index
-	document.getElementById("picDiv").addEventListener("click", collapsePic);
+	//pic and email divs are elements for displaying images/forms in the foreground
+	document.getElementById("picDiv").addEventListener("click", hideElement);
+	document.getElementById("emailDiv").addEventListener("click", hideElement);
+	document.getElementById("email-send").addEventListener("click", sendEmail);
 	
-	//about listeners for resume/cover letter
+	//about listeners for resume/email
 	document.getElementById("about-contact-links-resume").addEventListener("click", showResume);
+	document.getElementById("about-contact-links-email").addEventListener("click", showEmail);
 	
 	//code load buttons
 	var tempCodes = document.getElementsByClassName("code-content-nav-tabs");
@@ -672,11 +675,24 @@ function init(){
 	}
 	
 	//load a resume or cover letter in picDiv and display it
-	function showResume(e){
+	function showResume(){
 		
 		document.getElementById("picDiv").innerHTML = `<iframe id="pdf" src="dox/resume.pdf"></iframe>`;
 		document.getElementById("picDiv").style.display = "flex";
 
+	}
+	
+	//unhide the email form in the foreground
+	function showEmail(){
+
+		document.getElementById("emailDiv").style.display = "flex";
+
+	}
+	
+	//grabs form data and sends a json object to the server
+	function sendEmail(){
+		
+		
 	}
 	
 	//force input to be numeric for quantity
@@ -2007,10 +2023,19 @@ function init(){
 		document.getElementById("picDiv").style.display = "flex";
 	}
 	
-	//hides the fullscreen pic
-	function collapsePic(e){
+	//hides the fullscreen pic element and clears it
+	function hideElement(e){
+
+		switch(e.target.id){
+			
+			case "picDiv":
+				document.getElementById("picDiv").style.display = "none";
+				break;
+			case "emailDiv":
+				document.getElementById("emailDiv").style.display = "none";
+				break;
+		}
 		
-		document.getElementById("picDiv").style.display = "none";
 	}
 	
 	//games main function

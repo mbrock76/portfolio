@@ -11,12 +11,23 @@
 	<div id="picDiv">
 	</div>
 	
+	<!-- hidden email form	-->
+	<div id="emailDiv">
+		<div id="email-container">
+			<input type="text" class="email-inputs" id="email-from" size="40" placeholder=" From:" required>
+			<input type="text" class="email-inputs" id="email-cc" placeholder=" CC:" size="40">
+			<textarea class="email-inputs" id="email-from" rows="15" placeholder=" Subject:" required></textarea>
+			<button id="email-send">send</button>
+		</div>
+	</div>
 	
+	<!-- name and title, with stretchy bg images -->
 	<div id="title">
 		<div id="myName">Michael V. Brock</div>
 		<div id="port">- portfolio -</div>
 	</div>
 	
+	<!-- a row of navigation buttons which stay at the top -->
 	<div id="nav">
 		<span class="pointer navBtnFocus" id="about">about</span>
 		<span class="pointer navBtn" id="code">code</span>
@@ -24,8 +35,11 @@
 		<span class="pointer navBtn" id="games">games</span>
 		</br><div id="navgradient"></div>
 	</div>
-			
+	
+	<!-- main wrapper -->
 	<div id="center">
+	
+		<!-- the about me section, text intro, links, and the button for the above email form -->
 		<div class="content" id="about-content">
 			<div id="about-text">
 				</br></br>
@@ -47,22 +61,22 @@
 				<div id="about-contact-vrt-line"></div>
 				
 				<div id="about-contact-links">
-					<div class="pointer about-contact-links" id="about-contact-links-resume">Résumé</div>
-					<a class="pointer about-contact-links" target="_blank" href="https://www.linkedin.com/in/mbrock76/">
-						<img src="img/in.png" alt=" logo">
+					<div class="pointer" id="about-contact-links-resume">Résumé</div>
+					<a class="pointer about-contact-link" target="_blank" href="https://www.linkedin.com/in/mbrock76/">
+						<img class="about-contact-link-img" src="img/in.png" alt="linkedin icon">
 					</a>
-					<a class="pointer about-contact-links" target="_blank" href="https://github.com/mbrock76/">
-						<img src="img/github.png" alt="github logo">
+					<a class="pointer about-contact-link" target="_blank" href="https://github.com/mbrock76/">
+						<img class="about-contact-link-img" src="img/github.png" alt="github icon">
 					</a>
-					<div class="pointer about-contact-links" id="about-contact-links-email">
-						<img src="img/email.png" alt="email icon">
+					<div class="pointer about-contact-link" id="about-contact-links-email">
+						<img class="about-contact-link-img" src="img/email.png" alt="email icon">
 					</div>
 				</div>
 			</div>
 		</div>
 		
 		<div class="content" id="projects-content">
-			<div class="" id="">asdf</div>
+			<div class="" id="">projects</div>
 		</div>
 		
 		<div class="content" id="mrp-content">
