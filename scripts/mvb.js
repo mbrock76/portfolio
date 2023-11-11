@@ -7,6 +7,14 @@ function init(){
 	
 	//login
 	var user = {name: "", pwd: "", date: 0, remember: false};
+
+	//TODO: workaround, can't split a regex with string delimiters in it
+	var emailRegex;
+	fetch("scripts/regex_email.txt")
+		.then((response) => response.text())
+		.then((text) => {
+			emailRegex = new RegExp(text, "gi");
+		});
 	
 	//mrp
 	var partNums = {steel: 1, fasteners: 2, springs: 3, coating: 4, packaging: 5, widgetA: 6, widgetB: 7, widgetC: 8};
@@ -152,14 +160,15 @@ function init(){
 	document.getElementById("mrp").addEventListener("click", loadMrp);
 	document.getElementById("games").addEventListener("click", loadGames);
 	
-	//pic and email divs are elements for displaying images/forms in the foreground
-	document.getElementById("picDiv").addEventListener("click", hideElement);
-	document.getElementById("emailDiv").addEventListener("click", hideElement);
-	document.getElementById("email-send").addEventListener("click", sendEmail);
-	
-	//about listeners for resume/email
+	//about listeners for showing and hiding the resume/email elements
 	document.getElementById("about-contact-links-resume").addEventListener("click", showResume);
 	document.getElementById("about-contact-links-email").addEventListener("click", showEmail);
+	document.getElementById("picDiv").addEventListener("click", hideElement);
+	document.getElementById("emailDiv").addEventListener("click", hideElement);
+	
+	//actions within the email element
+	document.getElementById("email-from").addEventListener("input", valEmail);
+	document.getElementById("email-send").addEventListener("click", sendEmail);
 	
 	//code load buttons
 	var tempCodes = document.getElementsByClassName("code-content-nav-tabs");
@@ -688,11 +697,75 @@ function init(){
 		document.getElementById("emailDiv").style.display = "flex";
 
 	}
-	
+
 	//grabs form data and sends a json object to the server
+	function valEmail(e){
+
+		if(!e.target.value || e.target.value.match(emailRegex)){
+			
+			e.target.style.border = "2px solid #5bc2ea";
+		}else{
+			
+			e.target.style.border = "2px solid red";
+			e.target.style.outline = "none";
+		}
+	}
+	
+	// gather form input
 	function sendEmail(){
 		
-		
+		// gather the form data
+		const formElements = [document.getElementById("email-from"), document.getElementById("email-subject"),
+							document.getElementById("email-message")];
+
+		const emailObj = {
+
+			sender_email: formElements[0].value,
+			subject: formElements[1].value,
+			message_body: formElements[2].value
+		}
+
+		// check that the email is validated and all fields are filled out, then send
+		if(formElements[0].style.border == "2px solid red"){
+			
+			alert("Please fix the format errors in the email field.");
+			
+		}else if(Object.values(emailObj).some(value => !value)){
+			
+			alert("Please fill out all of the fields before sending.");
+
+		}else{
+
+			// Perform the Fetch POST request
+			fetch('scripts/send_email.php', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify(emailObj)
+				
+			})
+			.then(response => {
+				if (!response.ok) {
+
+					throw new Error('Network response was not ok');
+				}
+				return response.text;
+			})
+			.then(data => {
+
+				alert('Email sent successfully!');
+				formElements.forEach(each => {
+					each.value = "";
+				});
+				document.getElementById("emailDiv").style.display = "none";
+			})
+			.catch(error => {
+
+				console.error('There was a problem with the fetch operation:', error);
+				alert('Error sending email.');
+			});
+		}
 	}
 	
 	//force input to be numeric for quantity
