@@ -88,8 +88,8 @@ body{
 }
 
 #navgradient{
-	min-height: 10px;
-	background-image: linear-gradient(to right, #aaaaaa, #eeeeee, white, white, white, white, white, #eeeeee, #aaaaaa);
+	min-height: 20px;
+	background: linear-gradient(to right, #aaaaaa, #eeeeee, white, white, white, white, white, #eeeeee, #aaaaaa);
 }
 
 .navBtn{
@@ -143,11 +143,8 @@ body{
 }
 
 #about-text{
-	overflow: visible;
-}
-
-#about-projects{
 	margin: 0 5% 0 5%;
+	width: 90%;
 }
 
 #about-contact{
@@ -184,42 +181,6 @@ body{
 
 .about-contact-link-img{
 	height: 100%;
-}
-
-#code-content{
-	display: none;
-}
-
-#code-content-nav{
-	display: flex;
-	justify-content: center;
-	padding: 5px;
-	font-size: 1.5rem;
-}
-
-#code-content-block{
-	width: 100%
-}
-
-.code-content-nav-tabs{
-	padding: 5px 15px 5px 15px;
-	margin: 0px 2px 0px 2px;
-}
-
-.code-content-nav-focus{
-	padding: 5px 15px 5px 15px;
-	margin: 0px 2px 0px 2px;
-	background-color: #e6e6e6;
-}
-
-.code-content-block-languages{
-	display: none;
-	background-color: #e6e6e6;
-	font-size: 1rem;
-	text-align: left;
-	tab-size: 4;
-	min-width: 100%;
-	overflow-x: scroll;
 }
 
 #mrp-content{
@@ -270,7 +231,7 @@ body{
 	margin: 0px auto 10px auto;
 }
 
-.gray-row{
+.outer-table>tbody>tr:nth-child(even){
 	background-color: #eeeeee;
 }
 
@@ -465,7 +426,7 @@ body{
 }
 
 #games-panel-game{
-	display: block;
+	display: block;/*TODO: has to be block for desktop view, mobile works with none*/
 }
 
 #games-panel-info{
