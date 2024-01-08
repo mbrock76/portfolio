@@ -1925,7 +1925,7 @@ function init(){
 			savicon.dataset.value = user.remember * 1;
 			savicon.src = saviconImages[parseInt(savicon.dataset.value)];
 
-
+			hideChildren("hidden");
 			document.getElementById("hidden").style.display = "none";
 			loadMrp();
 
