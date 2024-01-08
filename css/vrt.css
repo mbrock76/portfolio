@@ -1,35 +1,52 @@
 body{
-	background-image: linear-gradient(to right, #cccccc, #eeeeee, white, white, white, white, white, #eeeeee, #cccccc);
+	background-color: #fdfdfd; 
 	margin: auto;
-	font-size: 1.5rem;
+	font-size: 1rem;
+	height: 100%;
+	width: 100%;
 	font-family: Calibri, sans-serif;
 }
 
-#picDiv, #emailDiv{
+button {
+    font-size: 1rem; /* why do I have to do this??? */
+}
+
+#hidden{
 	display: none;
-	justify-content: center;
 	position: fixed;
-	z-index: 2;
+	z-index: 3;
+	align-items: center;
+	justify-content: center;
 	height: 100%;
 	width: 100%;
 	background-color: rgba(0,0,0,.5);
-	overflow-y: scroll;
+}
+
+#resume{
+	display: none;
+	height: 100%;
+	width: 100%;
+	-webkit-animation: animatezoom 0.2s;
+	animation: animatezoom 0.2s;
+	margin: auto;
 }
 
 #email-container{
-	
-	background-color: #eeeeee;
+	display: none;
+	background-color: #fdfdfd;
 	border-radius: 1rem;
 	padding: 2rem;
-	min-width: 90%;
+	width: 95%;
 	margin: auto;
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
+	-webkit-animation: animatezoom 0.2s;
+	animation: animatezoom 0.2s;
 }
 
 .email-inputs{
-	font-size: 1.5rem;
+	font-size: 1rem;
 	font-family: Calibri, sans-serif;
 	margin: .5rem;
 	border-radius: .25rem;
@@ -44,53 +61,50 @@ body{
 	margin: 1rem auto;
 }
 
-#picture{
-	width: 100%;
-	margin: auto;
-}
-
-#pdf{
-	height: 90%;
-	width: 100%;
-	margin: auto;
-}
-
 .coming-soon{
 	max-height: 90%;
 	max-width: 90%;
 }
 
 #title{
-	background-color: #051928;
-	background: url("../img/circtitle.png") no-repeat;
-	background-size: 100% 100%;
+	display: flex;
+	justify-content: center;
+	background: url("../img/circtitle.png") no-repeat center center / 100% 100%;
 	width: 100%;
 	text-align: center;
-	padding-top: 15px;
-	padding-bottom: 15px;
+	z-index: 2;
 	color: white;
 }
 
+#title-text{
+	margin: 1rem 0;
+}
+
 #myName{
-	font-size: 3rem;
+	font-size: 2rem;
 }
 
 #nav{
-	background-color: #051928;
-	background: url("../img/circnav.png") no-repeat;
-	background-size: 100% 100%;
+	display: flex;
+    justify-content: center;
+	background: url("../img/circnav.png") no-repeat center center / 100% 100%;
+	width: 100%;
 	position: relative;
 	top: 0;
-	width: 100%;
 	text-align: center;
 	font-size: 0;
-	z-index: 1;
+	z-index: 2;
 	overflow: auto;
 }
 
 #navgradient{
-	min-height: 10px;
-	background-image: linear-gradient(to right, #cccccc, #eeeeee, white, white, white, white, white, #eeeeee, #cccccc);
+	display: none;
+	position: fixed;
+	background-image: linear-gradient(to bottom, rgba(253, 253, 253, 1), rgba(253, 253, 253, 1), rgba(253, 253, 253, 0));
+	top: 0;
+	width: 100%;
+	min-height: 5rem;
+	z-index: 1;
 }
 
 .navBtn{
@@ -100,7 +114,7 @@ body{
 	margin-left: 2px;
 	margin-right: 2px;
 	background-color: #aaaaaa;
-	font-size: 1.5rem;
+	font-size: 1rem;
 }
 
 .navBtnFocus{
@@ -110,27 +124,22 @@ body{
 	margin-left: 2px;
 	margin-right: 2px;
 	background-color: white;
-	font-size: 1.5rem;
+	font-size: 1rem;
 }
 
 #center{
-	margin: 0 5% 0 5%;
 	height: 100%;
 	text-align: center;
 }
 
 .content{
 	height: 100%;
-	width: 100%;
+	max-width: 100vw;
 }
 
 .savebox{
 	display: flex;
-	margin-left: 3%;
-}
-
-.flex-one{
-	flex: 1;
+	margin-left: 2%;
 }
 
 .user-logout{
@@ -141,30 +150,38 @@ body{
 	display: inline-block;
 	padding-bottom: 100px;
 	text-align: justify;
+	margin: 2rem 5%;
 }
 
 #about-text{
 	margin: 0 5% 0 5%;
-	width: 90%;
 }
 
 #about-contact{
 	display: grid;
-	grid-template-columns: 50% 5% 45%;
+	grid-template-columns: 1fr 5% 1fr;
 	width: 100%;
 	margin: auto;
 }
 
+#about-contact-face-wrapper{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	width: 100%;
+}
+
 #about-contact-face{
-	max-width: 80%;
-	margin: auto;
+	max-height: 70%;
+	max-width: 70%;
 }
 
 #about-contact-vrt-line{
-	height: auto;
+	height: 100%;
 	width: 3px;
-	height: 15rem;
-	background-image: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,1), rgba(0,0,0,0))
+	background-image: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,1), rgba(0,0,0,0));
+	margin: auto;
 }
 
 #about-contact-links{
@@ -172,7 +189,6 @@ body{
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-evenly;
-	/* filter: drop-shadow(-2px 2px 3px #000000); */
 }
 
 .about-contact-link{
@@ -183,75 +199,44 @@ body{
 	height: 100%;
 }
 
-#mrp-content{
+#projects-content{
 	display: none;
+	margin: 2rem 5%;
 }
 
-#mrp-welcome{
-	display: none;
-}
-
-#mrp-login{
-	display: none;
-	background-color: rgb(250,240,200);
-	box-shadow: 5px 5px 5px #999999;
-	width: 90%;
-	margin: 0 auto;
-}
-
-#mrp-login-username{
-	font-size: 20px;
-}
-
-#mrp-login-password{
-	font-size: 20px;
-}
-
-#mrp-login-login{
-	font-size: 20px;
-}
-
-#mrp-login-label-sub{
-	font-size: 15px;
-}
-
-#mrp-wrapper{
-	display: none;
+.projects-titles{
+	font-size: 1.5rem;
+	font-weight: 900;
+	font-style: italic;
+	text-align: left;
 	width: 100%;
-	height: 100%;
 }
 
-#mrp-user{
-	display: flex;
-	justify-content: space-between;
-	background-color: rgb(250,240,200);
-	box-shadow: 5px 5px 5px #999999;
-	line-height: 70%;
-	font-size: 25px;
-	padding: 5px 10px 10px 10px;
-	margin: 0px auto 10px auto;
+.projects-sections-content{
+	display: grid;
+	grid-template-columns: 4rem auto;
+	grid-gap: 0.5rem;
+}
+
+.projects-links-img{
+	border-radius: .5rem;
+	width: 100%;
+	margin-top: 5px;
+}
+
+.projects-desc{
+	font-size: 1rem;
+	text-align: left;
+}
+
+.projects-hrz-line{
+	height: 0.25rem;
+	margin: 1rem 0;
+	background-image: linear-gradient(to right, rgba(0,0,0,1), rgba(0,0,0,0));
 }
 
 .outer-table>tbody>tr:nth-child(even){
 	background-color: #eeeeee;
-}
-
-.mrp-rou-part-desc{
-	text-align: left;
-	margin: 5px auto 5px auto;
-	display: inline-block;
-	font-size: 12px;
-}
-
-#mrp-rou-table-th{
-	width: 70%;
-}
-
-.mrp-rou-table-desc-table{
-	margin-bottom: 10px;
-	width: 100%;
-	border-collapse: collapse;
-	font-size: 15px;
 }
 
 .table-data{
@@ -260,96 +245,49 @@ body{
 	font-size: 15px;
 }
 
-.mrp-rou-pick-loc{
-	width: 50px;
-}
-
-.mrp-tabs{
-	display: block;
-	background-color: rgb(250,240,200);
-	box-shadow: 5px 5px 5px #999999;
-	font-size: 25px;
-	padding: 10px;
-	margin: 10px auto 10px auto;
-}
-
-.mrp-tabs-content{
-	border: 2px solid gray;
-	background-color: white;
-	font-size: 15px;
-	margin: 0px auto 0px auto;
-}
-
-.mrp-content-lines{
-	display: flex;
-	justify-content: space-evenly;
-	font-size: 20px;
-	margin: 5px auto 5px auto;
-}
-
-.mrp-tabs-hdr{
-	display: flex;
-	justify-content: space-between;
-	line-height: 70%;
-	font-size: 25px;
-	padding: 5px 10px 10px 10px;
-	margin: 0px auto 0px auto;
-}
-
-.mrp-login-elements{
-	margin: 10px;
-}
-
-.mrp-por-content-line{
-	display: block;
-	width: 100%;
-	height: 4px;
-	background-image: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,1), rgba(0,0,0,0));
-}
-
-.mrp-doc-content-picblock{
-	display: flex;
-	justify-content: space-evenly;
-	padding: 5px;
-	margin: 10px;
-}
-
-.mrp-doc-content-picthumb{
-	max-width: 75px;
-	height: auto;
-	margin: 2px;
-}
-
 #games-content{
 	display: none;
 	background: url("../img/gamesbg_mobile.png") repeat-y center top;
 	background-size: 100%;
 	width: 100%;
 	color: black;
-	font-size: 20px;
-	font-weight: bold;
-	font-family: Arial, sans-serif;
+	margin-top: 2rem;
+}
+
+.games-box{
+	background-color: rgba(255,255,255, 0.5);
+	border: 3px solid white;
+	padding: 1rem;
+	box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.5);
+	backdrop-filter: blur(1px);
+	margin: 1rem;
+	font-size: 1.25rem;
 }
 
 #games-welcome{
-	margin-top: 15px;
+	/* color: #00ff00; */
+	/* background: url("../img/games-pc.png") no-repeat center center / 100% 100%; TODO: make wargames wopr ui*/ 
+	/* font-family: 'Courier New', monospace; */
+	width: 100%;
+	height: 100%;
+	margin-top: 1rem;
 }
 
 #games-login{
 	display: none;
-	font-size: 20px;
-	color: black;
-	background-color: rgba(255,255,255, 0.7);
-	border: 1px solid black;
-	padding: 5px;
-	box-shadow: 5px 5px 5px #999999;
-	font-weight: bold;
-	font-family: Arial, sans-serif;
-	margin: 10px 20px 0px 20px;
 }
 
-#games-login-label-sub{
-	font-size: 15px;
+.games-login-elements{
+	margin: 10px;
+}
+
+.games-login-inputs{
+	font-size: 1.5rem;
+	margin-bottom: 1rem;
+}
+
+.games-login-input-labels{
+	font-size: 0.75rem;
 }
 
 #games-wrapper{
@@ -361,18 +299,19 @@ body{
 #games-user{
 	display: flex;
 	justify-content: space-between;
-	background-color: rgba(255,255,255, 0.7);
-	border: 1px solid black;
-	padding: 5px;
-	margin: 10px 20px 0px 20px;
-	box-shadow: 3px 3px 3px #666666;
+	align-items: center;
+	font-size: 1.5rem;
+	font-weight: 600;
+	padding: 0 1rem !important;
 }
 
-#games-panel{
-	background-color: rgba(255,255,255, 0.7);
-	border: 1px solid black;
-	margin: 10px 20px 0px 20px;
-	box-shadow: 3px 3px 3px #666666;
+.games-user-icons{
+	height: 2rem;
+	width: auto;
+}
+
+#games-user-logout:hover{
+	content: url("../img/login_red.png");
 }
 
 .games-panels{
@@ -388,6 +327,14 @@ body{
 	display: block;
 }
 
+.games-nav-button{
+	height: 50px;
+	width: 50px;
+	margin: 2px;
+	border-radius: 5px;
+	box-shadow: -2px 2px 5px rgba(0,0,0,0.5);
+}
+
 #games-nav-info{
 	display: none;
 }
@@ -397,7 +344,6 @@ body{
 }
 
 #games-panel-chat-msgs{
-	padding: 5px;
 	max-height: 1200px;
 	overflow-y: scroll;
 	border: 1px solid black;
@@ -474,19 +420,13 @@ body{
 	height: 50px;
 }
 
-.games-nav-buttons{
-	height: 50px;
-	width: 50px;
-	margin: 2px;
-	border-radius: 10px 10px 10px 10px;
-}
-
 #games-nav{
 	display: flex;
 	justify-content: space-between;
 }
 
 #games-nav-title{
+	color: black;
 	padding-top: 5px;
 	font-size: 30px;
 }
@@ -496,7 +436,7 @@ body{
 }
 
 #games-panel-game-hangman-word{
-	font-size: 50px;
+	font-size: 2rem;
 	margin: auto;
 }
 
@@ -551,16 +491,6 @@ body{
 	color: white;
 }
 
-.mrp-ColExp:hover{
-	color: white;
-	cursor: pointer;
-}
-
-.mrp-doc-content-picthumb:hover{
-	outline: 1px solid blue;
-	cursor: pointer;
-}
-
 .games-nav-arrows:hover{
 	color: #80ffff;
 	cursor: pointer;
@@ -573,4 +503,14 @@ body{
 
 .pointer:hover{
 	cursor: pointer;
+}
+
+@-webkit-keyframes animatezoom {
+	from {-webkit-transform: scale(0)}
+	to {-webkit-transform: scale(1)}
+}
+	
+@keyframes animatezoom {
+	from {transform: scale(0)}
+	to {transform: scale(1)}
 }

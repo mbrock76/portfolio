@@ -10,13 +10,14 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = $conn->prepare("UPDATE users SET hangman =?, ttt =?, bird =?, hat =? WHERE id =?");
-$sql->bind_param("iiiii", $obj->hangman, $obj->ttt, $obj->bird, $obj->hat, $obj->id);
+$sql = $conn->prepare("INSERT INTO scrap (partID,  qty, emp) VALUES (?,?,?)");
+$sql->bind_param("iis", $obj->partID, $obj->scrap, $obj->emp);
+
 
 if ($sql->execute()) {
-  echo "Users updated.";
+    echo "Scrap recorded.";
 } else {
-  echo "Error updating record: " . $conn->error;
+    echo "Error creating record: " . $conn->error;
 }
 
 $sql->close();

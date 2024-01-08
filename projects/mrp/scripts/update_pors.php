@@ -10,11 +10,11 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = $conn->prepare("UPDATE users SET hangman =?, ttt =?, bird =?, hat =? WHERE id =?");
-$sql->bind_param("iiiii", $obj->hangman, $obj->ttt, $obj->bird, $obj->hat, $obj->id);
+$sql = $conn->prepare("UPDATE por SET qty =? WHERE id =?");
+$sql->bind_param("ii", $obj->qty, $obj->id);
 
 if ($sql->execute()) {
-  echo "Users updated.";
+  echo "Por updated.";
 } else {
   echo "Error updating record: " . $conn->error;
 }

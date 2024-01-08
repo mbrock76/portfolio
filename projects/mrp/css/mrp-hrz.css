@@ -1,0 +1,307 @@
+body{
+	background: url('../img/mrp_body.png') center center / cover no-repeat fixed;
+	height: 100vh;
+	margin: 0; 
+	font-size: 2rem;
+	font-family: Calibri, sans-serif;
+}
+
+#hidden{
+	display: none;
+	position: fixed;
+	align-items: center;
+	justify-content: center;
+	z-index: 3;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0,0,0,.5);
+}
+
+#picdiv{
+	display: none;
+	-webkit-animation: animatezoom 0.2s;
+	animation: animatezoom 0.2s
+}
+
+#navbar{
+	position: fixed;
+	width: 100%;
+	background: url('../img/steel.png');
+}
+
+#navbar-child{
+	display: flex;
+	width: 100%;
+	padding: 0.5rem;
+	justify-content: space-between;
+	flex-direction: row;
+	box-sizing: border-box;
+	font-family: 'Russo One', sans-serif;
+	text-shadow: 0.25rem 0.25rem 0px black;
+	background-image: linear-gradient(45deg, #77777755, #ffffff,  #77777755);
+}
+
+.nav-sides{
+	display: flex;
+	align-items: center;
+	font-size: 2.5rem;
+	margin: 0rem 1rem;
+	width: 15%;
+	color: white;
+}
+
+#tm{
+	font-size: 1.5rem;
+	vertical-align: super;
+}
+
+#loginout{
+	margin-left: auto;
+}
+
+#savicon{
+	display: none;
+	height: 50%;
+	width: auto;
+	margin-left: 1rem;
+}
+
+#nav-buttons{
+	display: none;
+	align-items: center;
+	justify-content: center;
+	flex-direction: row;
+}
+
+.navBtn, .navBtnFocus {
+    display: flex;
+	height: 100%;
+	padding: 0 0.5rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.navBtn{
+	text-shadow: none;
+}
+
+.navBtnFocus {
+    color: white;
+	text-shadow: 0 0 0.75rem black;
+}
+
+.navBtn:hover{
+	color: white;
+	text-shadow: 0 0 0.75rem black;
+}
+
+#contents{
+	display: block;
+	height: 100%;
+	width: 60%;
+	margin: auto;
+	text-align: center;
+}
+
+.content{
+	display: none;
+	box-shadow: -5px 5px 5px #00000080;
+	border-radius: 0.5rem;
+	margin: 2rem auto 2rem auto;
+	background: url('../img/steel.png');
+}
+
+.content-child{
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	background-image: linear-gradient(45deg, #77777755, #ffffff,  #77777755);
+	border-radius: 0.5rem;
+	padding: 10px;
+}
+
+.content-center{
+	width: 100%;
+	margin-bottom: 2rem;
+}
+
+.screw-col{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.screws{
+	background: url('../img/screw.png') center center / cover no-repeat;
+	height: 0.75rem;
+	width: 0.75rem;
+}
+
+.savebox{
+	margin-left: 2%;
+	display: flex;
+}
+
+.flex-one{
+	flex: 1;
+}
+
+.user-logout{
+	height: 20px;
+}
+
+#content-about{
+	display: block;
+	color: white;
+	text-shadow: 0.15rem 0.15rem 0px rgba(0,0,0,0.75);
+	line-height: 2;
+}
+
+#mrp-login{
+	display: none;
+	text-align: center;
+	-webkit-animation: animatezoom 0.2s;
+	animation: animatezoom 0.2s
+}
+
+#mrp-login-center{
+	margin: 1rem 0;
+}
+
+#mrp-login-label-sub{
+	font-size: 1rem;
+	margin-bottom: 2rem;
+}
+
+.mrp-login-elements{
+	margin: 1rem;
+}
+
+.mrp-login-inputs{
+	font-size: 1.5rem;
+	margin-bottom: 1rem;
+}
+
+.mrp-login-input-labels{
+	font-size: 1rem;
+}
+
+#mrp-login-login{
+	font-size: 1.5rem;
+}
+
+#mrp-user{
+	display: flex;
+	justify-content: space-between;
+	background-color: rgb(250,240,200);
+	box-shadow: 5px 5px 5px #999999;
+	line-height: 70%;
+	font-size: 2rem;
+	padding: 5px 10px 10px 10px;
+	margin: 0px auto 10px auto;
+}
+
+.outer-table>tbody>tr:nth-child(even){
+	background-color: #eeeeee;
+}
+
+.mrp-rou-part-desc{
+	text-align: left;
+	margin: 5px auto 5px auto;
+	display: inline-block;
+}
+
+#mrp-rou-table-th{
+	width: 70%;
+}
+
+.mrp-rou-table-desc-table{
+	margin-bottom: 10px;
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 1.75;
+}
+
+.table-data{
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 1.75;
+}
+
+.mrp-rou-pick-loc{
+	width: 50px;
+}
+
+.mrp-tabs-content{
+	border: 2px solid gray;
+	background-color: white;
+	font-size: 20px;
+	margin: 0px auto 0px auto;
+}
+
+.mrp-content-lines{
+	display: flex;
+	justify-content: space-evenly;
+	margin: 5px auto 5px auto;
+}
+
+.mrp-tabs-hdr{
+	text-align: center;
+	font-weight: 600;
+}
+
+.mrp-login-elements{
+	margin: 10px;
+}
+
+.mrp-por-content-line{
+	display: block;
+	width: 100%;
+	height: 3px;
+	background-image: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,1), rgba(0,0,0,0)); 
+}
+
+.mrp-doc-content-picblock{
+	display: flex;
+	justify-content: space-evenly;
+	padding: 5px;
+	margin: 10px;
+}
+
+.mrp-doc-content-picthumb{
+	max-width: 150px;
+	height: auto;
+}
+
+
+
+.mrp-ColExp:hover{
+	color: white;
+	cursor: pointer;
+}
+
+.mrp-doc-content-picthumb:hover{
+	outline: 1px solid blue;
+	cursor: pointer;
+}
+
+.pointer:hover{
+	cursor: pointer;
+}
+
+@-webkit-keyframes animatezoom {
+	from {-webkit-transform: scale(0)}
+	to {-webkit-transform: scale(1)}
+}
+	
+@keyframes animatezoom {
+	from {transform: scale(0)}
+	to {transform: scale(1)}
+}
+
+/* #myalert{
+	z-index: 2;
+	position: fixed;
+	bottom: 0px;
+	right: 0px;
+} */

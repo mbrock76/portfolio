@@ -1,16 +1,7 @@
 <?php
 
-$servername = "";
-$username = "";
-$password = "";
-$dbname = "";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+//get the database connection
+require('db_conn.php');
 
 $sql = "SELECT * FROM chat";
 $result = $conn->query($sql);

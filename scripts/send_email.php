@@ -8,6 +8,7 @@ $data = json_decode($json_data);
 
 // Check if the JSON decoding was successful
 if ($data !== null) {
+
     // Extract data from the JSON
     $sender_email = $data->sender_email;
     $subject = $data->subject;
@@ -15,8 +16,9 @@ if ($data !== null) {
 
     // Validate email address
     if (filter_var($sender_email, FILTER_VALIDATE_EMAIL)) {
+        
         // Set up the email parameters
-        $to = ''; // <-- add your email here
+        $to = 'mbrock76@mikebrock.me';
         $headers = 'From: ' . $sender_email . "\r\n" .
                    'Reply-To: ' . $sender_email . "\r\n" .
                    'X-Mailer: PHP/' . phpversion();

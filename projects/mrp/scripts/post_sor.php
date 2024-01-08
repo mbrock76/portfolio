@@ -10,13 +10,14 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = $conn->prepare("UPDATE users SET hangman =?, ttt =?, bird =?, hat =? WHERE id =?");
-$sql->bind_param("iiiii", $obj->hangman, $obj->ttt, $obj->bird, $obj->hat, $obj->id);
+$sql = $conn->prepare("INSERT INTO sor (partID,  orderQty, qty, emp) VALUES (?,?,?,?)");
+$sql->bind_param("iiis", $obj->partID, $obj->orderQty, $obj->orderQty , $obj->emp);
+
 
 if ($sql->execute()) {
-  echo "Users updated.";
+    echo "Sales order created.";
 } else {
-  echo "Error updating record: " . $conn->error;
+    echo "Error creating record: " . $conn->error;
 }
 
 $sql->close();

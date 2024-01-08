@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0" charset="utf-8">
+<link id="css" rel="stylesheet" href="css/mrp-hrz.css" type="text/css" />
+<script src="scripts/mrp.js"></script>
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+</style> 
+</head>
+<body onload="init()">
+
+	<!-- hidden element for displaying documents and forms in front of the website -->
+	<div id="hidden">
+		<div id="picDiv"></div>
+
+		<div class="content" id="mrp-login">
+			<div class="content-child">
+				<div class="screw-col">
+					<div class="screws"></div>
+					<div class="screws"></div>
+				</div>
+
+				<div id="mrp-login-center">
+					<div>Login/create account:</div>
+					<div id="mrp-login-label-sub">(Chars allowed: Aa123_ )</div>
+					<div>
+						<label class="mrp-login-input-labels">Username:</label>
+						<input type="text" class="mrp-login-inputs" name="username" id="mrp-login-username" maxlength="30">
+					</div>
+					<div>
+						<label class="mrp-login-input-labels">Password:</label>
+						<input type="password" class="mrp-login-inputs" name="password" id="mrp-login-password" maxlength="30">
+					</div>
+					<button type="button" id="mrp-login-login">Enter</button>
+				</div>
+
+				<div class="screw-col">
+					<div class="screws"></div>
+					<div class="screws"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- navbar -->
+	<div id="navbar">
+		<div id="navbar-child">
+			<div class="pointer nav-sides"  id="logo">WidgetCo<span id="tm">™</span></div>
+			<div id="nav-buttons">
+				<div class="pointer navBtn" id="navBtn-rou">rou</div>
+				<div class="pointer navBtn" id="navBtn-inv">inv</div>
+				<div class="pointer navBtn" id="navBtn-rec">rec</div>
+				<div class="pointer navBtn" id="navBtn-shi">shi</div>
+				<div class="pointer navBtn" id="navBtn-por">por</div>
+				<div class="pointer navBtn" id="navBtn-sor">sor</div>
+				<div class="pointer navBtn" id="navBtn-doc">doc</div>
+			</div>
+			<div class="nav-sides">
+				<div class="pointer" id="loginout">Login</div>
+				<img class="pointer" id="savicon" data-value="0" src="img/savicon.png">
+			</div>
+		</div>
+	</div>
+	
+	</br></br></br>
+
+	<!-- this wrapper holds the elements associated with the nav buttons -->
+	<div id="contents">
+
+		<!-- welcome page, introduction, contact info -->
+		<div id="content-about">
+			Welcome to the wonderful world of widgets!
+			</br></br>
+			We at WidgetCo work with a wealth of wisdom to weld and weave world-class widgets. 
+			Within our walls, we witness the wizardry of well-wrought steel, transforming it into wondrous, well-built widgets. 
+			With state-of-the-art technology, our workforce wields expertise and enthusiasm in every widget they work.
+			Wholly committed to the welfare of our world, WidgetCo's work philosophy weaves sustainability with innovation. 
+			We work wonders with waste reduction, ensuring every widget is both a win for us and the world. 
+			Why weather worries? With WidgetCo, you're not just choosing a widget; 
+			you're welcoming a legacy of enduring quality and wise stewardship of resources.
+			Witness our world of widgets and welcome a wave of wonder to your projects. 
+			</br></br>
+			WidgetCo - Where widgets are not just wares, they're a passion.
+		</div>
+		
+		<!-- routers: instructions and flow of control for a product which all depts reference  -->
+		<div class="content" id="content-rou">
+			<div class="content-child">
+				<div class="screw-col">
+					<div class="screws"></div>
+					<div class="screws"></div>
+				</div>
+
+				<div class="content-center">
+					<div class="mrp-tabs-hdr">Routers</div><br>
+					<div class="mrp-tabs-content" id="mrp-rou-content">
+						<div id="mrp-rou-content-buttons">
+						</div>
+						<div id="mrp-rou-content-data">
+						</div>
+					</div>
+				</div>
+
+				<div class="screw-col">
+					<div class="screws"></div>
+					<div class="screws"></div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- inventory: shows all product in all locations/depts -->
+		<div class="content" id="content-inv">
+			<div class="content-child">
+				<div class="screw-col">
+					<div class="screws"></div>
+					<div class="screws"></div>
+				</div>
+
+				<div class="content-center">
+					<div class="mrp-tabs-hdr">Inventory</div>
+
+					<div class="mrp-tabs-content" id="mrp-inv-content">
+						<div id="mrp-inv-content-buttons">
+						</div>
+						<div id="mrp-inv-content-data">
+						</div>
+					</div>
+				</div>
+
+				<div class="screw-col">
+					<div class="screws"></div>
+					<div class="screws"></div>
+				</div>
+			</div>
+		</div>
+			
+		<div class="content" id="content-rec">
+			<div class="content-child">
+				<div class="screw-col">
+					<div class="screws"></div>
+					<div class="screws"></div>
+				</div>
+
+				<div class="content-center">
+					<div class="mrp-tabs-hdr">Receiving</div>
+				
+					<div class="mrp-tabs-content" id="mrp-rec-content">
+						<div class="mrp-content-lines">
+							<div>
+								<label for="mrp-rec-content-qty">Qty:</label>
+								<input type="text" name="mrp-rec-content-qty" id="mrp-rec-content-qty" placeholder="All?" size="2"></input>
+							</div>
+								<button type="button" id="mrp-rec-content-scrap">scrap</button>
+								<button type="button" id="mrp-rec-content-receive">receive</button>
+						</div>
+						<div id="mrp-rec-content-data">
+						</div>
+					</div>
+				
+				</div>
+
+				<div class="screw-col">
+					<div class="screws"></div>
+					<div class="screws"></div>
+				</div>
+			</div>
+		</div>
+			
+		<div class="content" id="content-shi">
+			<div class="content-child">
+				<div class="screw-col">
+					<div class="screws"></div>
+					<div class="screws"></div>
+				</div>
+
+				<div class="content-center">
+					<div class="mrp-tabs-hdr">Shipping</div>
+				
+					<div class="mrp-tabs-content" id="mrp-shi-content">
+						<div id="mrp-shi-content-buttons">
+						</div>
+						<div id="mrp-shi-content-data">
+						</div>
+					</div>
+				</div>
+
+				<div class="screw-col">
+					<div class="screws"></div>
+					<div class="screws"></div>
+				</div>
+			</div>
+		</div>
+			
+		<div class="content" id="content-por">
+			<div class="content-child">
+				<div class="screw-col">
+					<div class="screws"></div>
+					<div class="screws"></div>
+				</div>
+
+				<div class="content-center">
+					<div class="mrp-tabs-hdr">Purchase Orders</div>
+				
+					<div class="mrp-tabs-content" id="mrp-por-content">
+						<div class="mrp-content-lines">
+							<div>
+								</br>
+								<button type="button" id="mrp-por-content-cancel">cancel</button>
+							</div>
+							<div>
+								<label for="mrp-por-content-create-items">Item:</label></br>
+								<select name="mrp-por-content-create-items" id="mrp-por-content-create-items" style="width:70px;">
+									<option value="steel">steel</option>
+									<option value="fasteners">fasteners</option>
+									<option value="springs">springs</option>
+									<option value="coating">coating</option>
+									<option value="packaging">packaging</option>
+								</select>
+							</div>
+							<div>
+								<label for="mrp-por-content-create-qty">Qty:</label></br>
+								<input type="text" name="mrp-por-content-create-qty" id="mrp-por-content-create-qty" size="2"></input>
+							</div>
+							<div>
+								</br>
+								<button type="button" id="mrp-por-content-create-submit">order</button>
+							</div>
+						</div>
+						
+						<div id="mrp-por-content-data">
+						</div>
+					</div>
+				</div>
+
+				<div class="screw-col">
+					<div class="screws"></div>
+					<div class="screws"></div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="content" id="content-sor">
+			<div class="content-child">
+				<div class="screw-col">
+					<div class="screws"></div>
+					<div class="screws"></div>
+				</div>
+
+				<div class="content-center">
+					<div class="mrp-tabs-hdr">Sales Orders</div>
+
+					<div class="mrp-tabs-content" id="mrp-sor-content">
+						<div id="mrp-sor-content-buttons">
+						</div>
+						<div id="mrp-sor-content-data">
+						</div>
+					</div>
+				</div>
+
+				<div class="screw-col">
+					<div class="screws"></div>
+					<div class="screws"></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="content" id="content-doc">
+			<div class="content-child">
+				<div class="screw-col">
+					<div class="screws"></div>
+					<div class="screws"></div>
+				</div>
+
+				<div class="content-center">
+					<div class="mrp-tabs-hdr">Documents</div>
+				
+					<div class="mrp-tabs-content" id="mrp-doc-content">
+						</br>Drawings:
+						<div class="mrp-doc-content-picblock">
+							<img class="mrp-doc-content-picthumb" id="mrp-doc-content-widgetA" src="dox/widgetA.png" alt="widgetA">
+							<img class="mrp-doc-content-picthumb" id="mrp-doc-content-widgetB" src="dox/widgetB.png" alt="widgetB">
+							<img class="mrp-doc-content-picthumb" id="mrp-doc-content-widgetC" src="dox/widgetC.png" alt="widgetC">
+						</div>
+						<div class="mrp-por-content-line"></div>
+						</br>Quality Control:
+						<div class="mrp-doc-content-picblock">
+							<img class="mrp-doc-content-picthumb" id="mrp-doc-content-qc-sop-A" src="dox/qc_sop_A.png" alt="qc sop A">
+							<img class="mrp-doc-content-picthumb" id="mrp-doc-content-qc-sop-B" src="dox/qc_sop_B.png" alt="qc sop B">
+							<img class="mrp-doc-content-picthumb" id="mrp-doc-content-qc-sop-C" src="dox/qc_sop_C.png" alt="qc sop C">
+						</div>
+						<div class="mrp-por-content-line"></div>
+						</br>Assembly:
+						<div class="mrp-doc-content-picblock">
+							<img class="mrp-doc-content-picthumb" id="mrp-doc-content-assembly-A" src="dox/assembly-A.png" alt="assembly A">
+							<img class="mrp-doc-content-picthumb" id="mrp-doc-content-assembly-B" src="dox/assembly-B.png" alt="assembly B">
+							<img class="mrp-doc-content-picthumb" id="mrp-doc-content-assembly-C" src="dox/assembly-C.png" alt="assembly C">
+						</div>
+						<div class="mrp-por-content-line"></div>
+						</br>Misc:
+						<div class="mrp-doc-content-picblock">
+							<img class="mrp-doc-content-picthumb" id="mrp-doc-content-floor-plan" src="dox/floor_plan.png" alt="floor plan">
+						</div>
+					</div>
+				</div>
+
+				<div class="screw-col">
+					<div class="screws"></div>
+					<div class="screws"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	</br>
+	</br>
+
+</body>
+</html>

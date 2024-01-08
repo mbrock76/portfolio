@@ -1,0 +1,4 @@
+ttt	#aeffa8
+hm	#bcf0ff
+hat	#e9cf9c
+bird	#ffbebc

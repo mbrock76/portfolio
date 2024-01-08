@@ -1,0 +1,341 @@
+body{
+	background-image: linear-gradient(to right, #cccccc, #eeeeee, white, white, white, white, white, #eeeeee, #cccccc);
+	margin: auto;
+	font-size: 1.5rem;
+	font-family: Calibri, sans-serif;
+}
+
+
+
+#picDiv, #emailDiv{
+	display: none;
+	justify-content: center;
+	position: fixed;
+	z-index: 2;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0,0,0,.5);
+	overflow-y: scroll;
+}
+
+#email-container{
+	
+	background-color: #eeeeee;
+	border-radius: 1rem;
+	padding: 2rem;
+	min-width: 90%;
+	margin: auto;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.email-inputs{
+	font-size: 1.5rem;
+	font-family: Calibri, sans-serif;
+	margin: .5rem;
+	border-radius: .25rem;
+	border: 2px solid #5bc2ea;
+}
+
+#email-send{
+	
+	background-image: url("../img/email_send.png");
+	height: 105px;
+	width: 200px;
+	margin: 1rem auto;
+}
+
+#picture{
+	width: 100%;
+	margin: auto;
+}
+
+#pdf{
+	height: 90%;
+	width: 100%;
+	margin: auto;
+}
+
+.coming-soon{
+	max-height: 90%;
+	max-width: 90%;
+}
+
+#title{
+	background-color: #051928;
+	background: url("../img/circtitle.png") no-repeat;
+	background-size: 100% 100%;
+	width: 100%;
+	text-align: center;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	color: white;
+}
+
+#myName{
+	font-size: 3rem;
+}
+
+#nav{
+	background-color: #051928;
+	background: url("../img/circnav.png") no-repeat;
+	background-size: 100% 100%;
+	position: relative;
+	top: 0;
+	width: 100%;
+	text-align: center;
+	font-size: 0;
+	z-index: 1;
+	overflow: auto;
+}
+
+#navgradient{
+	min-height: 10px;
+	background-image: linear-gradient(to right, #cccccc, #eeeeee, white, white, white, white, white, #eeeeee, #cccccc);
+}
+
+.navBtn{
+	display: inline-block;
+	padding: 4px 10px 4px 10px;
+	border-radius: 10px 10px 0px 0px;
+	margin-left: 2px;
+	margin-right: 2px;
+	background-color: #aaaaaa;
+	font-size: 1.5rem;
+}
+
+.navBtnFocus{
+	display: inline-block;
+	padding: 4px 10px 4px 10px;
+	border-radius: 10px 10px 0px 0px;
+	margin-left: 2px;
+	margin-right: 2px;
+	background-color: white;
+	font-size: 1.5rem;
+}
+
+#center{
+	margin: 0 5% 0 5%;
+	height: 100%;
+	text-align: center;
+}
+
+.content{
+	height: 100%;
+	width: 100%;
+}
+
+.savebox{
+	display: flex;
+	margin-left: 3%;
+}
+
+.flex-one{
+	flex: 1;
+}
+
+.user-logout{
+	height: 20px;
+}
+
+#about-content{
+	display: inline-block;
+	padding-bottom: 100px;
+	text-align: justify;
+}
+
+#about-text{
+	margin: 0 5% 0 5%;
+	width: 90%;
+}
+
+#about-contact{
+	display: grid;
+	grid-template-columns: 50% 5% 45%;
+	width: 100%;
+	margin: auto;
+}
+
+#about-contact-face{
+	max-width: 80%;
+	margin: auto;
+}
+
+#about-contact-vrt-line{
+	height: auto;
+	width: 3px;
+	height: 15rem;
+	background-image: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,1), rgba(0,0,0,0))
+}
+
+#about-contact-links{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+	/* filter: drop-shadow(-2px 2px 3px #000000); */
+}
+
+.about-contact-link{
+	height: 15%;
+}
+
+.about-contact-link-img{
+	height: 100%;
+}
+
+#mrp-content{
+	display: none;
+}
+
+#mrp-welcome{
+	display: none;
+}
+
+#mrp-login{
+	display: none;
+	background-color: rgb(250,240,200);
+	box-shadow: 5px 5px 5px #999999;
+	width: 90%;
+	margin: 0 auto;
+}
+
+#mrp-login-username{
+	font-size: 20px;
+}
+
+#mrp-login-password{
+	font-size: 20px;
+}
+
+#mrp-login-login{
+	font-size: 20px;
+}
+
+#mrp-login-label-sub{
+	font-size: 15px;
+}
+
+#mrp-wrapper{
+	display: none;
+	width: 100%;
+	height: 100%;
+}
+
+#mrp-user{
+	display: flex;
+	justify-content: space-between;
+	background-color: rgb(250,240,200);
+	box-shadow: 5px 5px 5px #999999;
+	line-height: 70%;
+	font-size: 25px;
+	padding: 5px 10px 10px 10px;
+	margin: 0px auto 10px auto;
+}
+
+.outer-table>tbody>tr:nth-child(even){
+	background-color: #eeeeee;
+}
+
+.mrp-rou-part-desc{
+	text-align: left;
+	margin: 5px auto 5px auto;
+	display: inline-block;
+	font-size: 12px;
+}
+
+#mrp-rou-table-th{
+	width: 70%;
+}
+
+.mrp-rou-table-desc-table{
+	margin-bottom: 10px;
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 15px;
+}
+
+.table-data{
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 15px;
+}
+
+.mrp-rou-pick-loc{
+	width: 50px;
+}
+
+.mrp-tabs{
+	display: block;
+	background-color: rgb(250,240,200);
+	box-shadow: 5px 5px 5px #999999;
+	font-size: 25px;
+	padding: 10px;
+	margin: 10px auto 10px auto;
+}
+
+.mrp-tabs-content{
+	border: 2px solid gray;
+	background-color: white;
+	font-size: 15px;
+	margin: 0px auto 0px auto;
+}
+
+.mrp-content-lines{
+	display: flex;
+	justify-content: space-evenly;
+	font-size: 20px;
+	margin: 5px auto 5px auto;
+}
+
+.mrp-tabs-hdr{
+	display: flex;
+	justify-content: space-between;
+	line-height: 70%;
+	font-size: 25px;
+	padding: 5px 10px 10px 10px;
+	margin: 0px auto 0px auto;
+}
+
+.mrp-login-elements{
+	margin: 10px;
+}
+
+.mrp-por-content-line{
+	display: block;
+	width: 100%;
+	height: 4px;
+	background-image: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,1), rgba(0,0,0,0));
+}
+
+.mrp-doc-content-picblock{
+	display: flex;
+	justify-content: space-evenly;
+	padding: 5px;
+	margin: 10px;
+}
+
+.mrp-doc-content-picthumb{
+	max-width: 75px;
+	height: auto;
+	margin: 2px;
+}
+
+.navBtn:hover{
+	color: white;
+}
+
+.mrp-ColExp:hover{
+	color: white;
+	cursor: pointer;
+}
+
+.mrp-doc-content-picthumb:hover{
+	outline: 1px solid blue;
+	cursor: pointer;
+}
+
+.pointer:hover{
+	cursor: pointer;
+}

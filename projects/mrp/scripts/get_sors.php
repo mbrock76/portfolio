@@ -3,9 +3,12 @@
 //get the database connection
 require('db_conn.php');
 
-$sql = "SELECT * FROM users";
-$result = $conn->query($sql);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
+$sql = "SELECT * FROM sor";
+$result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
 
