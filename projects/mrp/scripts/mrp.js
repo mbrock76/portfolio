@@ -2,7 +2,7 @@
 function init(){
 
 	//-------------GLOBAL VARIABLES--------------
-	var mobile = false;
+	var mobile = (window.innerWidth < window.innerHeight) ? true : false;
 	var span = `<div class="mrp-por-content-line"></div>`;
 	var saviconImages = ["img/savicon.png", "img/savicon_green.png", "img/savicon_red.png"];
 	
@@ -91,7 +91,7 @@ function init(){
 	var scraps = [];
 	var mrpTimer;
 	var milliday = 86400000;
-	
+
 	
 	//-----------EVENT LISTENERS--------------
 	window.addEventListener("resize", toggleCss);
@@ -159,381 +159,28 @@ function init(){
 	for(let i = 0; i < tempDocs.length; i++){
 		document.getElementById(tempDocs[i].id).addEventListener("click", expandPic);
 	}
-
-	//--------------FUNCTIONS-----------------	
+	
 	//initiate states
 	toggleCss();
 	hideChildren("hidden");
 	loadMrp();
 	
+
+	//--------------FUNCTIONS-----------------	
 	//switches between desktop and mobile view, mostly to fit buttons
 	function toggleCss(){
+
 		
-		if(window.innerWidth < window.innerHeight){
-			document.getElementById("css").href = "css/mrp-vrt.css";
-			document.getElementById("contents").style.margin = "0 5% 0 5%";
+		if(window.innerWidth < window.innerHeight && !mobile){
 			mobile = true;
-			tttSize = 80;			
-			
-			document.getElementById("mrp-inv-content-buttons").innerHTML = 
-				`<div class="mrp-content-lines">
-					<div>Filter:</br>
-						<input type="checkbox" id="mrp-inv-content-filter"></input>
-					</div>
-					<div>
-						<label for="mrp-inv-content-col">Location:</label></br>
-						<select name="mrp-inv-content-aisle" id="mrp-inv-content-aisle" style="width:50px;">
-							<option value="ALL">ALL</option>
-							<option value="REC">REC</option>
-							<option value="A">A</option>
-							<option value="B">B</option>
-							<option value="C">C</option>
-							<option value="D">D</option>
-							<option value="E">E</option>
-							<option value="F">F</option>
-						</select>
-						<select name="mrp-inv-content-col" id="mrp-inv-content-col" style="width:50px;">
-							<option value="ALL">ALL</option>
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-						</select>
-						<select name="mrp-inv-content-row" id="mrp-inv-content-row" style="width:50px;">
-							<option value="ALL">ALL</option>
-							<option value="A">A</option>
-							<option value="B">B</option>
-							<option value="C">C</option>
-							<option value="D">D</option>
-							<option value="E">E</option>
-							<option value="F">F</option>
-						</select>
-					</div>
-					<div>
-						<label for="mrp-inv-content-items">Desc:</label></br>
-						<select name="mrp-inv-content-items" id="mrp-inv-content-items" style="width:70px;">
-							<option value="ALL">ALL</option>
-							<option value="steel">steel</option>
-							<option value="fasteners">fasteners</option>
-							<option value="springs">springs</option>
-							<option value="coating">coating</option>
-							<option value="packaging">packaging</option>
-						</select>
-					</div>
-				</div>
-				<div class="mrp-content-lines">
-					<div>
-						<label for="mrp-inv-content-totals">Totals: </label>
-						<input type="checkbox" id="mrp-inv-content-totals"></input>
-					</div>
-					<div>
-						<label for="mrp-inv-content-qty">Qty: </label>
-						<input type="text" name="mrp-inv-content-qty" id="mrp-inv-content-qty" placeholder="All?" size="2"></input>
-					</div>
-					<button type="button" id="mrp-inv-content-scrap">scrap</button><button type="button" id="mrp-inv-content-move">move</button>
-				</div>`;
-				
-			document.getElementById("mrp-rou-content-buttons").innerHTML =
-				`<div class="mrp-content-lines">
-					<div>Filter: </br>
-						<input type="checkbox" id="mrp-rou-content-filter"></input>
-					</div>
-					<div>
-						<label for="mrp-rou-content-dept">Loc: </label></br>
-						<select name="mrp-rou-content-dept" id="mrp-rou-content-dept" style="width:60px;">
-							<option value="ALL">ALL</option>
-							<option value="INV">Inventory</option>
-							<option value="CNC">CNC</option>
-							<option value="DBR">Deburr</option>
-							<option value="QC">QC</option>
-							<option value="PNT">Paint</option>
-							<option value="ASM">Assembly</option>
-						</select>
-					</div>
-					<div id="rou-desktop">
-						<label for="mrp-rou-content-qty">Qty: </label></br>
-						<input type="text" name="mrp-rou-content-qty" id="mrp-rou-content-qty" placeholder="All?" size="2"></input>
-					</div>
-					<div></br>
-						<button type="button" id="mrp-rou-content-scrap">scrap</button>
-					</div>
-					<div></br>
-						<button type="button" id="mrp-rou-content-comp">complete</button>
-					</div>
-				</div>`;
-				
-			document.getElementById("mrp-sor-content-buttons").innerHTML =
-				`<div class="mrp-content-lines">
-					<div>
-						<label for="mrp-sor-content-filter">Filter:</label></br>
-						<input type="checkbox" id="mrp-sor-content-filter"></input>
-					</div>
-					<div>
-						<label for="mrp-sor-content-status">Status:</label></br>
-						<select name="mrp-sor-content-status" id="mrp-sor-content-status" style="width:80px;">
-							<option value="ALL">ALL</option>
-							<option value="SOR">unreleased</option>
-							<option value="PRO">in process</option>
-							<option value="CAN">cancelled</option>
-							<option value="SHI">shipped</option>
-						</select>
-					</div>
-					<div>
-						<label for="mrp-sor-content-items">Item:</label></br>
-						<select name="mrp-sor-content-items" id="mrp-sor-content-items" style="width:80px;">
-							<option value="ALL">ALL</option>
-							<option value="6">widgetA</option>
-							<option value="7">widgetB</option>
-							<option value="8">widgetC</option>
-						</select>
-					</div>
-					<div>
-						<label for="mrp-sor-content-create-qty">Qty:</label></br>
-						<input type="text" name="mrp-sor-content-create-qty" id="mrp-sor-content-create-qty" size="2" maxlength="1"></input>
-					</div>
-				</div>
-				<div class="mrp-content-lines">
-					<div>
-						<button type="button" id="mrp-sor-content-cancel">cancel</button>
-					</div>
-					<div>
-						<button type="button" id="mrp-sor-content-create">create</button>
-					</div>
-					<div>
-						<button type="button" id="mrp-sor-content-release">release</button>
-					</div>
-				</div>
-				`;
-				document.getElementById("mrp-shi-content-buttons").innerHTML =
-					`<div class="mrp-content-lines">
-						<div>Filter:</br>
-							<input type="checkbox" id="mrp-shi-content-filter"></input>
-						</div>
-						<div id="mrp-shi-content-bols-wrapper">
-							<label for="mrp-shi-content-bols">Bols:</label></br>
-							<select name="mrp-shi-content-bols" id="mrp-shi-content-bols" style="width:50px;">
-								<option value="ALL">ALL</option>
-							</select>
-						</div>
-						<div>
-							<label for="mrp-shi-content-date">Date:</label></br>
-							<input type="date" id="mrp-shi-content-date" name="mrp-shi-content-date">
-						</div>
-					</div>
-					<div class="mrp-content-lines">
-						<div>
-							<label for="mrp-shi-content-carriers">Carriers:</label>
-							<select name="mrp-shi-content-carriers" id="mrp-shi-content-carriers" style="width:70px;">
-								<option value="ALL">ALL</option>
-								<option value="UPS">UPS</option>
-								<option value="FedEx">FedEx</option>
-								<option value="Conway">Conway</option>
-								<option value="Swift">Swift</option>
-								<option value="Holland">Holland</option>
-								<option value="Estes">Estes</option>
-							</select>
-						</div>
-						<div>
-							<label for="mrp-shi-content-items">Item:</label>
-							<select name="mrp-shi-content-items" id="mrp-shi-content-items" style="width:70px;">
-								<option value="ALL">ALL</option>
-								<option value="6">widgetA</option>
-								<option value="7">widgetB</option>
-								<option value="8">widgetC</option>
-							</select>
-						</div>
-					</div>
-					<div class="mrp-content-lines">
-						<button type="button" id="mrp-shi-content-add">Add</button>
-						<button type="button" id="mrp-shi-content-new">New</button>
-						<button type="button" id="mrp-shi-content-bol">Bol</button>
-						<button type="button" id="mrp-shi-content-ship">Ship</button>
-					</div>`;
+			tttSize = 80;
+			window.location.href = "mrp-m.html";
 					
-		}
-		else{
-			document.getElementById("css").href = "css/mrp-hrz.css";
+		}else if(window.innerWidth > window.innerHeight && mobile){
 			mobile = false;
 			tttSize = 100;
+			window.location.href = "mrp.html";
 			
-			document.getElementById("mrp-inv-content-buttons").innerHTML = 
-				`<div class="mrp-content-lines">
-					<div>Filter:</br>
-						<input type="checkbox" id="mrp-inv-content-filter"></input>
-					</div>
-					<div>
-						<label for="mrp-inv-content-col">Location:</label></br>
-						<select name="mrp-inv-content-aisle" id="mrp-inv-content-aisle" style="width:50px;">
-							<option value="ALL">ALL</option>
-							<option value="REC">REC</option>
-							<option value="A">A</option>
-							<option value="B">B</option>
-							<option value="C">C</option>
-							<option value="D">D</option>
-							<option value="E">E</option>
-							<option value="F">F</option>
-						</select>
-						<select name="mrp-inv-content-col" id="mrp-inv-content-col" style="width:50px;">
-							<option value="ALL">ALL</option>
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-						</select>
-						<select name="mrp-inv-content-row" id="mrp-inv-content-row" style="width:50px;">
-							<option value="ALL">ALL</option>
-							<option value="A">A</option>
-							<option value="B">B</option>
-							<option value="C">C</option>
-							<option value="D">D</option>
-							<option value="E">E</option>
-							<option value="F">F</option>
-						</select>
-					</div>
-					<div>
-						<label for="mrp-inv-content-items">Desc:</label></br>
-						<select name="mrp-inv-content-items" id="mrp-inv-content-items" style="width:70px;">
-							<option value="ALL">ALL</option>
-							<option value="steel">steel</option>
-							<option value="fasteners">fasteners</option>
-							<option value="springs">springs</option>
-							<option value="coating">coating</option>
-							<option value="packaging">packaging</option>
-						</select>
-					</div>
-					<div>
-						<label for="mrp-inv-content-totals">Totals: </label></br>
-						<input type="checkbox" id="mrp-inv-content-totals"></input>
-					</div>
-					<div>
-						<label for="mrp-inv-content-qty">Qty: </label></br>
-						<input type="text" name="mrp-inv-content-qty" id="mrp-inv-content-qty" placeholder="All?" size="2"></input>
-					</div>
-					<div></br>
-						<button type="button" id="mrp-inv-content-scrap">scrap</button>
-					</div>
-					<div></br>
-						<button type="button" id="mrp-inv-content-move">move</button>
-					</div>
-				</div>`;
-				
-			document.getElementById("mrp-rou-content-buttons").innerHTML =
-				`<div class="mrp-content-lines">
-					<div>Filter: 
-						<input type="checkbox" id="mrp-rou-content-filter"></input>
-					</div>
-					<div>
-						<label for="mrp-rou-content-dept">Loc: </label>
-						<select name="mrp-rou-content-dept" id="mrp-rou-content-dept" style="width:60px;">
-							<option value="ALL">ALL</option>
-							<option value="INV">Inventory</option>
-							<option value="CNC">CNC</option>
-							<option value="DBR">Deburr</option>
-							<option value="QC">QC</option>
-							<option value="PNT">Paint</option>
-							<option value="ASM">Assembly</option>
-						</select>
-					</div>
-					<div>
-						<label for="mrp-rou-content-qty">Qty: </label>
-						<input type="text" name="mrp-rou-content-qty" id="mrp-rou-content-qty" placeholder="All?" size="2"></input>
-					</div>
-
-					<button type="button" id="mrp-rou-content-scrap">scrap</button>
-
-					<button type="button" id="mrp-rou-content-comp">complete</button>
-				</div>`;
-				
-			document.getElementById("mrp-sor-content-buttons").innerHTML =
-				`<div class="mrp-content-lines">
-					<div>
-						<label for="mrp-sor-content-filter">Filter:</label></br>
-						<input type="checkbox" id="mrp-sor-content-filter"></input>
-					</div>
-					<div>
-						<label for="mrp-sor-content-status">Status:</label></br>
-						<select name="mrp-sor-content-status" id="mrp-sor-content-status" style="width:80px;">
-							<option value="ALL">ALL</option>
-							<option value="SOR">unreleased</option>
-							<option value="PRO">in process</option>
-							<option value="CAN">cancelled</option>
-							<option value="SHI">shipped</option>
-						</select>
-					</div>
-					<div>
-						<label for="mrp-sor-content-items">Item:</label></br>
-						<select name="mrp-sor-content-items" id="mrp-sor-content-items" style="width:80px;">
-							<option value="ALL">ALL</option>
-							<option value="6">widgetA</option>
-							<option value="7">widgetB</option>
-							<option value="8">widgetC</option>
-						</select>
-					</div>
-					<div>
-						<label for="mrp-sor-content-create-qty">Qty:</label></br>
-						<input type="text" name="mrp-sor-content-create-qty" id="mrp-sor-content-create-qty" size="2" maxlength="1"></input>
-					</div>
-					<div>
-						</br>
-						<button type="button" id="mrp-sor-content-cancel">cancel</button>
-					</div>
-					<div>
-						</br>
-						<button type="button" id="mrp-sor-content-create">create</button>
-					</div>
-					<div>
-						</br>
-						<button type="button" id="mrp-sor-content-release">release</button>
-					</div>
-				</div>`;
-				
-				document.getElementById("mrp-shi-content-buttons").innerHTML =
-					`<div class="mrp-content-lines">
-						<div>Filter:</br>
-							<input type="checkbox" id="mrp-shi-content-filter"></input>
-						</div>
-						<div id="mrp-shi-content-bols-wrapper">
-							<label for="mrp-shi-content-bols">Bols:</label></br>
-							<select name="mrp-shi-content-bols" id="mrp-shi-content-bols" style="width:50px;">
-								<option value="ALL">ALL</option>
-							</select>
-						</div>
-						<div>
-							<label for="mrp-shi-content-date">Date:</label></br>
-							<input type="date" id="mrp-shi-content-date" name="mrp-shi-content-date">
-						</div>
-						<div>
-							<label for="mrp-shi-content-carriers">Carriers:</label></br>
-							<select name="mrp-shi-content-carriers" id="mrp-shi-content-carriers" style="width:70px;">
-								<option value="ALL">ALL</option>
-								<option value="UPS">UPS</option>
-								<option value="FedEx">FedEx</option>
-								<option value="Conway">Conway</option>
-								<option value="Swift">Swift</option>
-								<option value="Holland">Holland</option>
-								<option value="Estes">Estes</option>
-							</select>
-						</div>
-						<div>
-							<label for="mrp-shi-content-items">Item:</label></br>
-							<select name="mrp-shi-content-items" id="mrp-shi-content-items" style="width:70px;">
-								<option value="ALL">ALL</option>
-								<option value="6">widgetA</option>
-								<option value="7">widgetB</option>
-								<option value="8">widgetC</option>
-							</select>
-						</div>
-					</div>
-					<div class="mrp-content-lines">
-						<button type="button" id="mrp-shi-content-add">Add</button>
-						<button type="button" id="mrp-shi-content-new">New</button>
-						<button type="button" id="mrp-shi-content-bol">Bol</button>
-						<button type="button" id="mrp-shi-content-ship">Ship</button>
-					</div>`;
 		}
 	}
 	
@@ -715,7 +362,7 @@ function init(){
 			loginout.innerText = user.name;
 			savicon.dataset.value = user.remember * 1;
 			savicon.src = saviconImages[parseInt(savicon.dataset.value)];
-			savicon.style.display = "inline-block";
+			savicon.style.display = "block";
 			document.getElementById("nav-buttons").style.display = "flex";
 
 		//if they are logged out and forgotten, load the login form
@@ -1846,7 +1493,7 @@ function init(){
 	//shows a full screen pic
 	function expandPic(e){
 		
-		document.getElementById("picDiv").innerHTML = `<img id="picture" src="${e.target.src}" alt="error">`;
+		document.getElementById("picture").src = e.target.src;
 		document.getElementById("picDiv").style.display = "flex";
 		document.getElementById("hidden").style.display = "flex";
 
