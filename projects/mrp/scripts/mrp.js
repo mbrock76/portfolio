@@ -92,9 +92,6 @@ function init(){
 	var mrpTimer;
 	var milliday = 86400000;
 	
-	toggleCss();
-	hideChildren("hidden");
-	loadMrp();
 	
 	//-----------EVENT LISTENERS--------------
 	window.addEventListener("resize", toggleCss);
@@ -164,6 +161,11 @@ function init(){
 	}
 
 	//--------------FUNCTIONS-----------------	
+	//initiate states
+	toggleCss();
+	hideChildren("hidden");
+	loadMrp();
+	
 	//switches between desktop and mobile view, mostly to fit buttons
 	function toggleCss(){
 		
